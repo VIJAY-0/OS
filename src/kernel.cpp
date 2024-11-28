@@ -5,6 +5,10 @@
 #include <drivers/mouse.h>
 #include <drivers/driver.h>
 
+
+// kermel main
+
+
 void printf(char* str)
 {
     static uint16_t* VideoMemory = (uint16_t*)0xb8000;
