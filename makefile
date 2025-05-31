@@ -15,6 +15,12 @@ objects =   obj/loader.o \
 			obj/interrupts.o \
 			obj/keyboard.o  \
 			obj/mouse.o  \
+			obj/MemoryManagement/MemoryAllocator.o \
+			obj/MemoryManagement/MemoryBlock.o \
+			obj/MemoryManagement/MemoryManager.o \
+			obj/MemoryManagement/PageTable.o \
+			obj/MemoryManagement/PageTableEntry.o \
+			obj/MemoryManagement/VirtualMemory.o \
 
 
 run :mykernel.iso

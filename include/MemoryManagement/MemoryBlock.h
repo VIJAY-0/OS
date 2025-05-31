@@ -1,37 +1,38 @@
 #ifndef __MEMORYBLOCK_H
 #define __MEMORYBLOCK_H
 
-#include <cstdint>
+#include <cstdint> // For uint32_t
+#include <cstddef> // For void* (though not strictly required for void*)
 
 class MemoryBlock {
 private:
     uint32_t size;
-    void* startAddress;
-    bool isAllocate;
+    void* startAddress; // Represents the starting memory address of the block
+    bool isAllocate;    // Status flag: true if allocated, false if free
 
 public:
-    MemoryBlock(uint32_t size, void* startAddress)
-        : size(size), startAddress(startAddress), isAllocate(false) {}
+    // Constructor: Initializes a memory block with a given size and start address.
+    // Initially, the block is marked as not allocated.
+    MemoryBlock(uint32_t size, void* startAddress);
 
-    uint32_t getSize() const {
-        return size;
-    }
+    // Returns the size of the memory block in bytes.
+    uint32_t getSize() const;
 
-    void* getStartAddress() const {
-        return startAddress;
-    }
+    // Returns the starting memory address of the block.
+    void* getStartAddress() const;
 
-    bool isAllocated() const {
-        return isAllocate;
-    }
+    // Returns true if the block is currently allocated, false otherwise.
+    bool isAllocated() const;
 
-    void allocate() {
-        isAllocate = true;
-    }
+    // Marks the block as allocated.
+    void allocate();
 
-    void free() {
-        isAllocate = false;
-    }
+    // Marks the block as free.
+    void free();
+
+    // Optional: Add a destructor if MemoryBlock were to manage resources
+    // that need explicit cleanup (e.g., if startAddress was owned and allocated by this class).
+    // ~MemoryBlock();
 };
 
-#endif
+#endif // __MEMORYBLOCK_H
